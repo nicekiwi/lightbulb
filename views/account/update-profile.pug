@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+
+    h1 Update Profile
+
+    img(src=gravatar.url(user.email_address, {s: '100', d: 'mm'})).img-circle
+
+    p
+      a(href='https://en.gravatar.com/support/activating-your-account/',target='_blank') Change Photo&nbsp;
+        i.fa.fa-external-link
+
+    form(method="post")
+      .row
+        .col-sm-4
+          .form-group
+            label First Name
+            input.form-control(value=user.first_name,name="first_name")
+        .col-sm-4
+          .form-group
+            label Last Name
+            input.form-control(value=user.last_name,name="last_name")
+      .row
+        .col-sm-8
+          .form-group
+            label Email Address
+            input.form-control(value=user.email_address,name="email_address",readonly)
+      .row
+        .col-sm-8
+          button.btn.btn-primary(type="submit") Update Profile
